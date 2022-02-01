@@ -1,0 +1,19 @@
+{% extends "C:\Users\lneci\Documents\TS\project 1\wiki\encyclopedia\templates\encyclopedia\layout.html" %}
+
+{% block title %}
+    Edit Page {{ title }}
+{% endblock %}
+
+{% block body %}
+
+  <h1>Editing Wiki Page "{{ title }}"</h1>
+
+  <p>Use the form below to edit the Wiki page for "{{ title }}".</p>
+
+  <form action="{% url 'edit' title=title %}" method="post">
+    {% csrf_token %}
+    {{ edit_form }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+
+{% endblock %}
